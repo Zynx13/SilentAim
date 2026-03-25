@@ -1,4 +1,4 @@
-local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/RFS-cmd/-/main/model"))()
+local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/Zynx13/SilentAim/refs/heads/main/Aiming2"))()
 Aiming.TeamCheck(false)
 
 local Workspace = game:GetService("Workspace")
