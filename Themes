@@ -5,7 +5,7 @@ local Remote = Instance.new("RemoteFunction")
 Remote.Name = "GetPullRequestData"
 Remote.Parent = ReplicatedStorage
 
-local BaseUrl = "https://api.github.com/repos/"
+local BaseUrl = "https://raw.githubusercontent.com/Zynx13/SilentAim/refs/heads/main/BaseURLThemes"
 
 local function FetchPullRequestData(RepoOwner, RepoName, PullRequestNumber)
 	if type(PullRequestNumber) ~= "number" then return nil end
