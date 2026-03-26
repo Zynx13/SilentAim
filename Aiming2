@@ -81,14 +81,20 @@ function Aiming.UpdateFOV()
         return
     end
 
-    -- // Set Circle Properties
+-- // Set Circle Properties   
+local UIS = game:GetService("UserInputService")
+
+function Aiming.UpdateFOV()
+    if not (circle) then return end
+
+    local MousePos = UIS:GetMouseLocation()
+
     circle.Visible = Aiming.ShowFOV
     circle.Radius = (Aiming.FOV * 3)
-    circle.Position = Vector2new(Mouse.X, Mouse.Y + GetGuiInset(GuiService).Y)
+    circle.Position = MousePos 
     circle.NumSides = Aiming.FOVSides
     circle.Color = Aiming.FOVColour
 
-    -- // Return circle
     return circle
 end
 
