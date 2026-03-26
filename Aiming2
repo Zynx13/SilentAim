@@ -74,9 +74,9 @@ circle.Color = Aiming.FOVColour
 circle.Filled = false
 Aiming.FOVCircle = circle
 
+
 local UIS = game:GetService("UserInputService")
 
--- // Set Circle Properties   
 function Aiming.UpdateFOV()
     if not (circle) then return end
 
@@ -84,14 +84,14 @@ function Aiming.UpdateFOV()
 
     circle.Visible = Aiming.ShowFOV
     circle.Radius = (Aiming.FOV * 3)
-    circle.Position = MousePos 
-    circle.NumSides = Aiming.FOVSides
+    -- Hvis sirkelen fortsatt er litt over/under, kan du endre 36 til f.eks 32 eller 40.
+    circle.Position = Vector2.new(MousePos.X, MousePos.Y - 36) 
+    
+    circle.NumSides = 60 -- Dette gjør sirkelen din rund og fin, ikke kantete!
     circle.Color = Aiming.FOVColour
 
     return circle
 end
-
-
 
 -- // Custom Functions
 local CalcChance = function(percentage)
