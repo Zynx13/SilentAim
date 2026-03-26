@@ -74,16 +74,9 @@ circle.Color = Aiming.FOVColour
 circle.Filled = false
 Aiming.FOVCircle = circle
 
--- // Update
-function Aiming.UpdateFOV()
-    -- // Make sure the circle exists
-    if not (circle) then
-        return
-    end
-
--- // Set Circle Properties   
 local UIS = game:GetService("UserInputService")
 
+-- // Set Circle Properties   
 function Aiming.UpdateFOV()
     if not (circle) then return end
 
@@ -97,6 +90,8 @@ function Aiming.UpdateFOV()
 
     return circle
 end
+
+
 
 -- // Custom Functions
 local CalcChance = function(percentage)
@@ -340,12 +335,10 @@ function Aiming.GetClosestTargetPartToCursor(Character)
             return
         end
 
-        -- // Get the length between Mouse and Target Part (on screen)
         local PartPos, onScreen = WorldToViewportPoint(CurrentCamera, TargetPart.Position)
-        local GuiInset = GetGuiInset(GuiService)
-        local Magnitude = (Vector2new(PartPos.X, PartPos.Y - GuiInset.Y) - Vector2new(Mouse.X, Mouse.Y)).Magnitude
-
-        -- //
+        local MousePos = game:GetService("UserInputService"):GetMouseLocation()
+        local Magnitude = (Vector2new(PartPos.X, PartPos.Y) - MousePos).Magnitude
+        
         if (Magnitude < ShortestDistance) then
             ClosestPart = TargetPart
             ClosestPartPosition = PartPos
@@ -354,6 +347,7 @@ function Aiming.GetClosestTargetPartToCursor(Character)
             ShortestDistance = Magnitude
         end
     end
+
 
     -- // String check
     if (typeof(TargetParts) == "string") then
