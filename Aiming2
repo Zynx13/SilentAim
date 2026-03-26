@@ -85,7 +85,7 @@ function Aiming.UpdateFOV()
     circle.Visible = Aiming.ShowFOV
     circle.Radius = (Aiming.FOV * 3)
     -- Hvis sirkelen fortsatt er litt over/under, kan du endre 36 til f.eks 32 eller 40.
-    circle.Position = Vector2.new(MousePos.X, MousePos.Y - 32) 
+    circle.Position = Vector2.new(MousePos.X, MousePos.Y - 40) 
     
     circle.NumSides = 60 -- Dette gjør sirkelen din rund og fin, ikke kantete!
     circle.Color = Aiming.FOVColour
